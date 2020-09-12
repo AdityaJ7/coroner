@@ -9,4 +9,15 @@ def test_client_id():
 
     sp = spasm.Spasm("../config/secret.json")
 
-    assert cid == sp.get_client_id()
+    assert cid == sp.cid_
+
+def test_get_active():
+    sp = spasm.Spasm("../config/secret.json")
+    sp.get_active(33214)
+
+def test_get_game_name():
+    sp = spasm.Spasm("../config/secret.json")
+    gm_nm = sp.get_game_from_id(33214)
+
+    assert gm_nm == "Fortnite"
+    
