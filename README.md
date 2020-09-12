@@ -22,7 +22,7 @@ A simple tool used to determine when your favorite twitch streamers go live.
 ---
 #### Testing
 
-1. Simply run `pytest` in the root project directory
+1. Simply run `pytest` in the `src/` directory
 
 
 ---
