@@ -18,14 +18,16 @@ A simple tool used to determine when your favorite twitch streamers go live.
 }
 ```
 
-Requirements:
-
-- python3-devel
-- openssl-devel
-- libcurl-devel
-
 
 ---
 #### Testing
 
-1. Simply run `pytest`
+1. Simply run `pytest` in the root project directory
+
+
+---
+#### Requirements:
+
+- python3-devel
+- openssl-devel
+- libcurl-devel
