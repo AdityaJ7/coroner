@@ -7,7 +7,7 @@ class Spasm:
     '''For gathering twitch data'''
 
     def __init__(self, sec_path):
-        '''Creates the curl object and gets the client id secret''' 
+        '''Reads the secret config file and gets OAuth creds''' 
         with open(sec_path, 'r') as f:
             cfg = json.load(f)
             self.cid_ = cfg["client_id"]
@@ -58,4 +58,3 @@ class Spasm:
         data = req.json()
 
         return data
-        
