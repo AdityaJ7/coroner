@@ -3,13 +3,13 @@ import logging
 from spasm import spasm
 
 def test_client_id():
-    ''' Simple test case for spasm'''
+    """ Simple test case for spasm"""
     with open("../config/secret.json", 'r') as f:
         cid = json.load(f)["client_id"]
 
     sp = spasm.Spasm("../config/secret.json")
 
-    assert cid == sp.cid_
+    assert cid == sp.cid
 
 def test_get_active():
     sp = spasm.Spasm("../config/secret.json")
