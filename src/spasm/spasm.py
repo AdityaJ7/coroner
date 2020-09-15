@@ -2,11 +2,16 @@ import json
 import logging
 import requests
 
+class Mode:
+    NORMAL = 0
+    DEBUG = 1
+
 class Spasm:
     """For gathering twitch data"""
 
-    def __init__(self, sec_path):
+    def __init__(self, sec_path, mode=Mode.NORMAL):
         """Reads the secret config file and gets OAuth creds"""
+        self._mode = mode
         with open(sec_path, "r") as f:
             cfg = json.load(f)
             self._cid = cfg["client_id"]
@@ -43,16 +48,12 @@ class Spasm:
 
         return name
 
-    def get_active(self, game_id):
+    def get_most_active(self, game_id):
         """Gets the most active streams for the given game id"""
         url = "https://api.twitch.tv/helix/streams?game_id={}".format(game_id)
         data = self.make_request(url)
-        for item in data["data"]:
-            unm = item["user_name"]
-            titl = item["title"]
-
-            logging.debug("Game: {}, Username: {}, Title: {}".format(
-                self.get_game_from_id(game_id), unm, titl))
+        titles = [item["title"] for item in data["data"]]
+        logging.debug("Titles: {}".format(titles))
 
         return data
 

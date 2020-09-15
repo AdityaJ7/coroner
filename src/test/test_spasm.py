@@ -13,7 +13,7 @@ def test_client_id():
 
 def test_get_active():
     sp = spasm.Spasm("../config/secret.json")
-    sp.get_active(33214)
+    sp.get_most_active(33214)
 
 def test_get_game_name():
     sp = spasm.Spasm("../config/secret.json")
